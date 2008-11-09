@@ -63,12 +63,19 @@ class Simpleclock : DrawingArea
       cr.Rectangle (0, 0, width, height);
       cr.Fill ();
 
-      // Set canvas transform so that the coords go from -1.0 to 1.0,
-      // rotation 0.0 is 12:00 and rotation increases clockwise.
-      cr.Translate ((width - boxSize) / 2.0, (height - boxSize) / 2.0); // center canvas to window
-      cr.Scale (boxSize / 2.0, boxSize / 2.0); // scale
-      cr.Translate (1.0, 1.0); // move origin to the center of the canvas
-      cr.Rotate (-Math.PI / 2.0); // rotate ccw by 90 deg to make 0 rot point up
+        // Set canvas transform so that the coords go from -1.0 to 1.0,
+        // rotation 0.0 is 12:00 and rotation increases clockwise.
+        //
+        // First, center the clock box to the window.
+      cr.Translate ((width - boxSize) / 2.0, (height - boxSize) / 2.0);
+        // Then scale the box so that -1.0 .. 1.0 spans the whole box.
+      cr.Scale (boxSize / 2.0, boxSize / 2.0);
+        // And move the origin to the center of the box.
+      cr.Translate (1.0, 1.0);
+        // Finally, rotate CCW by 90 degrees to make rotation 0 point up.
+        // We don't need to flip the rotation direction, because angle grows
+        // clockwise in the "Y grows down" default transform.
+      cr.Rotate (-Math.PI / 2.0);
 
       // Draw the clock
       DrawClockFace (cr);
