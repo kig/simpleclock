@@ -1,0 +1,10 @@
+A simple C# analog clock, using Gtk# and Cairo for the drawing.
+
+Requirements:
+  mono
+  libgtk2.0-cil
+  libmono-cairo2.0-cil
+
+Compile by:
+  gmcs -pkg:gtk-sharp-2.0 -r:Mono.Cairo simpleclock.cs 
+
