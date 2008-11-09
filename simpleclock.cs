@@ -56,8 +56,6 @@ class Simpleclock : DrawingArea
     DateTime date = DateTime.Now;
 
     cr.Save ();
-      cr.Operator = Cairo.Operator.Source;
-      cr.Paint ();
       // Clear the canvas
       cr.Color = new Color (1, 1, 1);
       cr.Rectangle (0, 0, width, height);
