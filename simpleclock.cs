@@ -68,8 +68,8 @@ class Simpleclock : DrawingArea
       cr.Translate ((width - boxSize) / 2.0, (height - boxSize) / 2.0); // center canvas to window
       cr.Scale (boxSize / 2.0, boxSize / 2.0); // scale
       cr.Translate (1.0, 1.0); // move origin to the center of the canvas
-      cr.Rotate (Math.PI / 2.0); // rotate ccw by 90 deg to make 0 rot point up
-      cr.Scale (-1.0, -1.0); // flip the canvas to make rotation increase clockwise
+      cr.Rotate (Math.PI / 2.0); // rotate ccw by 90 deg to make 0 rot point down
+      cr.Scale (-1.0, -1.0); // flip the canvas to make rotation increase clockwise from top
 
       // Draw the clock
       DrawClockFace (cr);
